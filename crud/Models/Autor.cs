@@ -7,6 +7,10 @@ namespace crud.Models
 {
     public class Autor
     {
+        public Autor()
+        {
+        }
+
         public Autor(int Id, string Name, string Nationality)
         {
             this.Id = Id;

@@ -12,6 +12,16 @@ namespace crud.Models
         public Book()
         {
         }
+        public Book(int id, string name, string title, int yearOfPublication, int autorId, Autor autor)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Title = title;
+            this.YearOfPublication = yearOfPublication;
+            this.AutorId = autorId;
+            this.Autor = autor;
+        }
+
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -25,8 +35,8 @@ namespace crud.Models
         [Required(ErrorMessage = "Please enter a YearOfPublication")]
         public int YearOfPublication { set; get; }
 
-        public int AutorId{set;get;}
+        public int AutorId { set; get; }
         [ForeignKey("AutorId")]
-        public Autor Autor{set;get;}
+        public Autor Autor { set; get; }
     }
 }
