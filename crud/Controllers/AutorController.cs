@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using crud.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -21,6 +22,15 @@ namespace crud.Controllers
         public IActionResult AutorHome()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Enrolle(Autor autor)
+        {
+            if (ModelState.IsValid)
+            {
+                this._logger.LogInformation("enrrol susseced");
+            }
+            return View("AutorHome",autor);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
