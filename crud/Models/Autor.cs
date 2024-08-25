@@ -7,11 +7,11 @@ namespace crud.Models
 {
     public class Autor
     {
-        public Autor(int Id, string name, string nationality)
+        public Autor(int Id, string Name, string Nationality)
         {
             this.Id = Id;
-            this.name = name;
-            this.nationality = nationality;
+            this.Name = Name;
+            this.Nationality = Nationality;
 
         }
 
@@ -20,9 +20,9 @@ namespace crud.Models
         public int Id { set; get; }
 
         [Required(ErrorMessage = "please enter a name")]
-        public string name { set; get; }
+        public string Name { set; get; }
 
         [Required(ErrorMessage = "please enter a nationality")]
-        public string nationality { set; get; }
+        public string Nationality { set; get; }
     }
 }
