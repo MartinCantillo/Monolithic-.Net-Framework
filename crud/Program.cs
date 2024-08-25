@@ -1,7 +1,16 @@
+using crud.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Adding DataContext to the conteiner
+
+builder.Services.AddDbContext<DataContext>(options =>
+options.UseMySQL("server=localhost;port=3306;database=bdCrud;user=root")
+);
 
 var app = builder.Build();
 
