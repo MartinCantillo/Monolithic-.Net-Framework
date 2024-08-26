@@ -26,15 +26,37 @@ namespace crud.Controllers
         {
             return View();
         }
+        public IActionResult Update(int id)
+        {
+
+            return View(this._IAutor.GetAutorById(id));
+        }
+        [HttpPost]
+        public IActionResult Edited(Autor autor)
+        {
+            if (ModelState.IsValid)
+            {
+                this._IAutor.Update(autor);
+            }
+            return RedirectToAction("display");
+        }
+
+        public IActionResult display()
+        {
+            var Autores = this._IAutor.GetAll();
+            return View(Autores);
+        }
+
+
         [HttpPost]
         public IActionResult Enrolle(Autor autor)
         {
             if (ModelState.IsValid)
-            {   
+            {
                 this._IAutor.SaveAutor(autor);
                 this._logger.LogInformation("enrrol susseced");
-                 return RedirectToAction("AutorHome");
-               
+                return RedirectToAction("display");
+
             }
             return View("AutorHome", autor);
         }

@@ -1,0 +1,26 @@
+@model crud.Models.Autor
+
+<br>
+<h1 style="text-align: center;">Edit Autor</h1>
+
+<hr>
+
+<div class="container">
+    <form asp-action="Edited" asp-controller="Autor" method="post">
+
+        <div class="form-group">
+             <input type="hidden" asp-for="Id" />
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-group">
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <br>
+            <br>
+            <label asp-for="Nationality" class="control-label"></label>
+            <input asp-for="Nationality" class="form-group">
+            <span asp-validation-for="Nationality" class="text-danger"></span>
+            <br>
+            <button type="submit">submit</button>
+
+        </div>
+    </form>
+</div>

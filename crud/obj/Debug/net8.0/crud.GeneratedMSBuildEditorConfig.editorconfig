@@ -22,8 +22,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcQXV0b3JIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/marti/OneDrive/Escritorio/mvc .net/crud/Views/Autor/display.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcZGlzcGxheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/marti/OneDrive/Escritorio/mvc .net/crud/Views/Autor/Enrolled.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcRW5yb2xsZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/marti/OneDrive/Escritorio/mvc .net/crud/Views/Autor/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/marti/OneDrive/Escritorio/mvc .net/crud/Views/Home/Index.cshtml]

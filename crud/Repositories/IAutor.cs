@@ -12,8 +12,8 @@ namespace crud.Repositories
         public ICollection<Autor> GetAll();
         public void DeleteAutor(int id);
 
-        public void Update(int id, Autor autor);
+        public void Update( Autor autor);
 
-        public void GetAutor(int id);
+        public Autor GetAutorById(int id);
     }
 }
