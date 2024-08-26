@@ -8,7 +8,7 @@ namespace crud.Repositories
 {
     public interface IAutor
     {
-        public void SaveAutor();
+        public void SaveAutor(Autor autor);
         public ICollection<Autor> GetAll();
         public void DeleteAutor(int id);
 

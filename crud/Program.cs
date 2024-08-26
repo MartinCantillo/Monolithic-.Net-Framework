@@ -1,4 +1,6 @@
 using crud.Data;
+using crud.Repositories;
+using crud.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
 options.UseMySQL("server=localhost;port=3306;database=bdCrud;user=root")
 );
+//Ading Autor repository and service
+builder.Services.AddScoped<IAutor, SAutor>();
 
 var app = builder.Build();
 
