@@ -30,7 +30,7 @@ namespace crud.Controllers
             {
                 this._logger.LogInformation("enrrol susseced");
             }
-            return View("AutorHome",autor);
+            return View("AutorHome", autor);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
