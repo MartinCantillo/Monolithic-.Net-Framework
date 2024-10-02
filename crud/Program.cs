@@ -8,15 +8,27 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//Adding DataContext to the conteiner
+// Adding DataContext to the container
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
+
+// env variables
+
 
 builder.Services.AddDbContext<DataContext>(options =>
-options.UseMySQL("server=localhost;port=3306;database=bdCrud;user=root")
-);
-//Ading Autor repository and service
+    options.UseMySQL(connectionString ?? ""));
+// Adding Autor repository and service
 builder.Services.AddScoped<IAutor, SAutor>();
 
 var app = builder.Build();
+
+builder.WebHost.UseUrls("http://0.0.0.0:80");
+
+// Apply migrations at application startup
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+    dbContext.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

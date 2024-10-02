@@ -1,0 +1,41 @@
+version: '3.8'  # Define the Docker Compose version
+
+services: 
+  webapp:  
+    image: webapp_container  # Name of the image for your ASP.NET MVC app
+    build: 
+      context: .  # Use the current directory as the build context
+      dockerfile: Dockerfile  # Specify the Dockerfile to use for building this service
+    ports:
+      - "5000:80"  # Map port 80 of the container to port 5000 of the host machine (change host port if needed)
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development  # Define the environment (Development, Staging, or Production)
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=bdCrud
+      - DB_USER=root
+      - DB_PASSWORD=bdm
+    depends_on: 
+      - mysql  # Wait for MySQL service to start before starting the web app
+    networks:
+      - mynetwork  # Connect to the custom network
+
+  mysql: 
+    image: mysql:8.0  # Use the official MySQL 8.0 image from Docker Hub
+   # restart: always  # Automatically restart the MySQL service if it crashes or stops
+    environment:
+      MYSQL_ROOT_PASSWORD: bdm  # Root password for MySQL
+      MYSQL_DATABASE: bdCrud  # Automatically create the database 'bdCrud' on startup
+    ports:
+      - "3306:3306"  # Map MySQL port 3306 on the container to port 3306 on the host machine
+    volumes:
+      - mysql-data:/var/lib/mysql  # Persist MySQL data using Docker volumes, so the data is not lost when the container restarts
+    networks:
+      - mynetwork  # Connect to the custom network
+
+volumes:
+  mysql-data:  # Named volume to persist MySQL data
+
+networks:
+  mynetwork:  # Define a custom network for your services
+    driver: bridge  # Use the default bridge network driver
