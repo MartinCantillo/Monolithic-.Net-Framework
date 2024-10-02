@@ -12,8 +12,14 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
 
 // env variables
-
-
+/*
+connectionString = connectionString
+    .Replace("${DB_HOST}", Environment.GetEnvironmentVariable("DB_HOST") ?? "mysql")
+    .Replace("${DB_PORT}", Environment.GetEnvironmentVariable("DB_PORT") ?? "3306")
+    .Replace("${DB_NAME}", Environment.GetEnvironmentVariable("DB_NAME") ?? "bdCrud")
+    .Replace("${DB_USER}", Environment.GetEnvironmentVariable("DB_USER") ?? "root")
+    .Replace("${DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "bdm");
+**/
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseMySQL(connectionString ?? ""));
 // Adding Autor repository and service
